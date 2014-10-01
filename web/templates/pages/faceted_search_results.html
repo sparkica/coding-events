@@ -1,16 +1,21 @@
 {% load endless %}
+<div id="events-container">
+	{% if events %}
+		{% if not page %}
+			<div id="search-counter-container" class="search-counter">{{ all_results }} {% if all_results > 1 %}events match{% else %}event matches{% endif %} your search criteria:</span></div>
+		{% endif %}
 
-{% if events %}
-	{% lazy_paginate 10 events as pag_events %}
-	{% for event in pag_events %}
-		{% include 'layout/event_tile_long.html' %}
-	{% endfor %}
+		{% lazy_paginate 10 events as pag_events %}
+		{% for event in pag_events %}
+			{% include 'layout/event_tile_long.html' %}
+		{% endfor %}
 
-	{% show_more %}
+		{% show_more %}
 
-{% else %}
+	{% else %}
 	<h3>
 		Sorry, no events matching your search criteria. Try expanding your search. 
 	</h3>
 {% endif %}
 
+</div>

@@ -14,8 +14,6 @@ var Codeweek = window.Codeweek || {};
 			});
 
 			$('.search-form-element').on('change', function (e) {
-				var container = $('#events-container');
-				var search_counter_container = $('#search-counter-container');
 				var data = $('#faceted-search-events').serialize();
 				var url = $('#faceted-search-events').attr('action');
 
